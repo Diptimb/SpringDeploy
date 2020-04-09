@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Library Database</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Book Database</h1>
+		<br />
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Book Name</th>
+					<th>Library</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="book : ${book}">
+					<td id="sid" th:text="${book.getId()}"></td>
+					<td id="sname" th:text="${book.getBookName()}"></td>
+					<td id="slib" th:text="${book.getLibrary().toString()}"></td>
+					<td><a th:href="${'/edit/' + book.id}"><button>Update</button></a>
+						&nbsp;&nbsp;&nbsp; 
+					</td>
+				</tr>
+				<tr ></tr>
+			</tbody>
+		</table>
+		
+		<a th:href="${'/add/' + id}"><button>Add
+					book</button></a> &nbsp;&nbsp;&nbsp;
+			<a th:href="${'/deleteFromBook/' + id}"><button>Delete book</button> </a>
+
+	</div>
+</body>
+</html>
